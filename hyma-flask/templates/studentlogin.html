@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/studentlogin.css">
+    </head>
+    <body>
+        <form action="{{ url_for('student_login') }}" method='POST'>
+            <h2>Rollno:<br>
+                <input type="text" name="rollno" id="rollno" placeholder="Enter your roll number" required><br>
+                Password:<br>
+                <input type="password" name='password' id="password" placeholder="Enter your password" required><br>
+                <br>
+                <input type="submit" value="Login" id="login-box" >
+                <a href="student-signup" class="signup-link">signup</a>
+                <a href="/" class="signup-link">Home</a>
+            </h2>
+            <!--h1>{{info}}</!--h1-->
+        </form>
+    </body>
+</html>

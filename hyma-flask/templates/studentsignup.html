@@ -1,0 +1,234 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="/static/studentsignup.css">
+    </head>
+    <script>
+        function toggleDiv() {
+            var parentRadio = document.getElementById("parentRadio");
+            var checkDiv = document.getElementById("check");
+            var check1Div = document.getElementById("check1");
+
+            if (parentRadio.checked) {
+                checkDiv.style.display = "block";
+                check1Div.style.display = "none";   
+            } 
+            else{
+                checkDiv.style.display = "none";
+                check1Div.style.display = "block";
+            }
+        }
+    </script>
+    <body>
+        <form action="/savedetails" method='POST'>
+            <h2><i>Personal Details</i></h2>
+            <div class="profile">
+                <input type="file" accept="image/*" id="Photo" style="display: none;" name="Photo">
+                <label for="Photo">
+                    <img id="profile-picture" src="static/image/USERICON1.jpg" alt="Profile Picture">
+                </label>
+            </div>
+            <h3 style="text-align:center;">Upload your profile</h3>
+            
+            <script>
+                const profilePictureInput = document.getElementById('Photo');
+                const profilePicture = document.getElementById('profile-picture');
+                
+                profilePictureInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                
+                    if (file) {
+                        const reader = new FileReader();
+                
+                        reader.onload = (e) => {
+                            profilePicture.src = e.target.result;
+                        };
+                
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                function showSection(sectionId) {
+                    var sections = document.querySelectorAll('.section');
+                    sections.forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    document.getElementById(sectionId).style.display = 'block';
+                }
+
+
+
+                function validatePasswords() {
+                    var password = document.getElementById("password").value;
+                    var confirmPassword = document.getElementById("confirm-password").value;
+                    var message = document.getElementById("password-message");
+                    var section2 = document.getElementById("section2");
+
+                
+                    if (password ==""){
+                        message.textContent = "Please enter the password";
+                    }
+                    else if (password === confirmPassword) {
+                        message.textContent = "Passwords match!";
+                        message.style.color = "green";
+                        section2.style.display = "block";
+                    }
+                     else {
+                        message.textContent = "Passwords do not match!";
+                        message.style.color = "red";
+                    }
+                }
+                    
+                
+            </script>
+
+            <div id="section1" class="section">
+                Username:
+                <input type="text" name="username" id="username" placeholder="Enter your username" required/><br>
+                <div>
+                    password:
+                    <input type="password" name='password' id="password" placeholder="Enter your password"required ><br>
+                    <br>
+                    Confirm Password:
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required ><br>
+                    <span id="password-message" style="color:red;"></span><br><br>
+                    <button type="button" onclick="validatePasswords()" required>Next</button>
+                </div>
+                <br>
+            </div>
+            <div id="section2" class="section" style="display:none;">
+                RollNo:
+                <input type="text" name="rollno" id="rollno" placeholder="Enter your rollno"required><br>
+                Branch:
+                <input type="text" name="branch" id="branch" placeholder="Enter your branch" required><br>
+                Gender:<br>
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="female">Female</label><br>
+                
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="male">Male</label><br>
+                
+                <input type="radio" name="gender" id="other" value="Other">
+                <label for="other">Other</label><br>
+                
+                Seat Type:
+                <input type="text" name="seattype" id="seattype" placeholder="Enter your seat type" required><br>
+                Last studied:<br>
+                <input type="radio" name="laststudied" id="intermediate" value="Intermediate">
+                <label for="intermediate">Intermediate</label><br>
+
+                <input type="radio" name="laststudied" id="polytechnic" value="Polytechnic">
+                <label for="polytechnic">Polytechnic</label><br>
+
+                Student Phone No:
+                <input type="tel" name="studentphone" id="studentphone" placeholder="Enter your phone no" required><br>
+                Email:
+                <input type="email" name="email" id="email" placeholder="Enter your email" required><br>
+                Semester:
+                <input type="number" name="semester" id="semester" placeholder="Enter your semester" required><br>
+                Date of Birth:
+                <input type="date" name="dob" id="dob" placeholder="Enter your dob" required><br>
+                Religion:
+                <input type="text" name="religion" id="religion" placeholder="Enter your religion"required><br>
+                EAMCET/ECET rank:
+                <input type="number" name="rank" id="rank" placeholder="Enter your rank" required><br>
+                Category & Caste:<br>
+                <input type="radio" name="caste" id="caste" value="General">General<br>
+                <input type="radio" name="caste" id="caste" value="SC/ST">SC/ST<br>
+                <input type="radio" name="caste" id="caste" value="OBC">OBC<br>
+                Joining Date:
+                <input type="date" name="joiningdate" id="joiningdate" placeholder="Enter your Joining date" required><br>
+                Aadhar No:
+                <input type="number" maxlength="12" name="Aadhar" id="Aadhar" placeholder="Enter your Aadhar" required><br>
+                Address:
+                <input type="text" name="address" id="address" required><br>
+                <button type="button" onclick="showSection('section1')">Back</button>
+                <button type="button" onclick="showSection('section3')">Next</button><br><br>
+            </div>
+
+            <div id="section3" class="section" style="display:none;">
+                <h2>Education Details</h2>
+
+                <h4>10th</h4>
+                School name:
+                <input type="text" name="school" id="school" placeholder="Enter your school name" required><br>
+                Board Type:<br>
+                <input type="text" name="board" id="board" placeholder="Enter your Board Type" required><br>
+                Hall Ticket Number:
+                <input type="number" name="tenhall" id="tenhall" placeholder="Enter your tenth Hall Ticket"required><br>
+                Year of pass:
+                <input type="number" name="tenyear" id="tenyear" placeholder="Enter your tenth passing year"required><br>
+                Marks/Percentage:
+                <input type="number" name="tenmarks" id="tenmarks" placeholder="Enter your tenth marks" required><br>
+                Address of the school:
+                <input type="text" name="tenaddress" id="tenaddress" required><br>
+
+                <h4>Intermediate/Polytechnic</h4>
+                College name:
+                <input type="text" name="intercollege" id="intercollege" placeholder="Enter your college name" required><br>
+                Group:
+                <input type="text" name="student_group" id="student_group" placeholder="Enter your group name" required><br>
+                Hall Ticket Number:
+                <input type="number" name="interhall" id="interhall" placeholder="Enter your inter Hall Ticket" required><br>
+                Year of pass:
+                <input type="number" name="interyear" id="interyear" placeholder="Enter your inter passing year" required><br>
+                Marks/Percentage:
+                <input type="number" name="intermarks" id="intermarks" placeholder="Enter your inter marks" required><br>
+                Address of Intermediate college:
+                <input type="text" name="interaddress" id="interaddress" required><br>
+                <button type="button" onclick="showSection('section2')">Back</button>
+                <button type="button" onclick="showSection('section4')">Next</button><br>
+
+            </div>
+            <div id="section4" class="section" style="display:none;">
+                <h4>Parent/Guardian details</h4>
+                Parent/Guardian:<br>
+                <input type="radio" name="relationship" id="parentRadio" onclick="toggleDiv();" value="parents"> Parent<br>
+                <input type="radio" name="relationship" id="guardianRadio" onclick="toggleDiv();" value="Guardian"> Guardian
+                <div id="check" style="display:none;">
+                Father name:
+                <input type="text" name="father" id="father" ><br>
+                Father mobile no:
+                <input type="tel" name="fathermobile" id="fathermobile"><br>
+                Father Occupation:
+                <input type="text" name="fatheroccupation" id="fatheroccupation"><br>
+                Father Education Qualifications:
+                <input type="text" name="fathereducation" id="fathereducation"><br>
+                Mother name:
+                <input type="text" name="mother" id="mother"><br>
+                Mother mobile no:
+                <input type="tel" name="mothermobile" id="mothermobile"><br>
+                Mother Occupation:
+                <input type="text" name="Motheroccupation" id="Motheroccupation"><br>
+                Mother Education Qualifications:
+                <input type="text" name="mothereducation" id="mothereducation"><br>
+                Annual Income:
+                <input type="number" name="income" id="income"><br>
+                Address:
+                <input type="text" name="paraddress" id="paraddress"><br>
+                </div>
+
+                <div id="check1" style="display: none;">
+                Guardian name:
+                <input type="text" name="guname" id="guname" ><br>
+                Guardian mobile no:
+                <input type="tel" name="gumobile" id="gumobile"><br>
+                Guardian Occupation:
+                <input type="text" name="guocc" id="guocc"><br>
+                Guardian Education Qualifications:
+                <input type="text" name="guedu" id="guedu"><br>
+                Address:
+                <input type="text" name="guaddress" id="guaddress"><br>
+                </div>
+                <br>
+                <br>
+                <br>
+                <button type="button" onclick="showSection('section3')">Back</button>
+                <input type="submit" value="Get started" id="login-box"> 
+            </div><br><br>
+                <input type="reset" value="Reset" id="reset">
+                <a href="/student-login" id="login-box"> Have an account Login</a>
+                <a href="/" id="login-box">Home</a>
+            </div>
+        </form>
+    </body>
+    </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="/static/studentinfo.css">
+</head>
+<body>
+    <h1>Student Details</h1>
+    
+    <div class="container">
+        <!-- Student Information -->
+        <h4 class="username">Username: {{row["username"]}}</h4>
+        <!-- h4 class="password">Password: {{row["password"]}}</h4> -->
+        <h4 class="rollno">Rollno: {{row["rollno"]}}</h4>
+        <h4>Branch: {{row["branch"]}}</h4>
+        <h4>Gender: {{row["gender"]}}</h4>
+        <h4>Seat Type: {{row["seattype"]}}</h4>
+        <h4>Last Studied: {{row["laststudied"]}}</h4>
+        <h4 class="phone">Student Phone: {{row["studentphone"]}}</h4>
+        <h4 class="email">Email: {{row["email"]}}</h4>
+        <h4>Semester: {{row["semester"]}}</h4>
+        <h4>DOB: {{row["dob"]}}</h4>
+        <h4>Religion: {{row["religion"]}}</h4>
+        <h4>Rank: {{row["rank"]}}</h4>
+        <h4>Caste: {{row["caste"]}}</h4>
+        <h4>Joining Date: {{row["joiningdate"]}}</h4>
+        <h4>Aadhar: {{row["Aadhar"]}}</h4>
+        <h4>Address: {{row["address"]}}</h4>
+        <h4>School: {{row["school"]}}</h4>
+        <h4>Board: {{row["board"]}}</h4>
+        <h4>Ten Hall: {{row["tenhall"]}}</h4>
+        <h4>Ten Year: {{row["tenyear"]}}</h4>
+        <h4>Ten Marks: {{row["tenmarks"]}}</h4>
+        <h4>Ten Address: {{row["tenaddress"]}}</h4>
+        <h4>Inter College: {{row["intercollege"]}}</h4>
+        <h4>Group: {{row["student_group"]}}</h4>
+        <h4>Inter Hall Ticket: {{row["interhall"]}}</h4>
+        <h4>Inter Year: {{row["interyear"]}}</h4>
+        <h4>Inter Marks: {{row["intermarks"]}}</h4>
+        <h4>Inter Address: {{row["interaddress"]}}</h4>
+
+        <!-- Parent/Guardian Information -->
+        <h4>Relationship: {{row["relationship"]}}</h4>
+        {% if row["relationship"] == "parents" %}
+            <h4>Father Name: {{row["father"]}}</h4>
+            <h4>Father Mobile No: {{row["fathermobile"]}}</h4>
+            <h4>Father Occupation: {{row["fatheroccupation"]}}</h4>
+            <h4>Father Education Qualifications: {{row["fathereducation"]}}</h4>
+            <h4>Mother Name: {{row["mother"]}}</h4>
+            <h4>Mother Mobile No: {{row["mothermobile"]}}</h4>
+            <h4>Mother Occupation: {{row["motheroccupation"]}}</h4>
+            <h4>Mother Education Qualifications: {{row["mothereducation"]}}</h4>
+            <h4>Annual Income: {{row["income"]}}</h4>
+            <h4>Address: {{row["paraddress"]}}</h4>
+        {% else %}
+            <h4>Guardian Name: {{row["guname"]}}</h4>
+            <h4>Guardian Mobile No: {{row["gumobile"]}}</h4>
+            <h4>Guardian Occupation: {{row["guocc"]}}</h4>
+            <h4>Guardian Education Qualifications: {{row["guedu"]}}</h4>
+            <h4>Guardian Address: {{row["guaddress"]}}</h4>
+        {% endif %}
+    </div>
+</body>
+</html>

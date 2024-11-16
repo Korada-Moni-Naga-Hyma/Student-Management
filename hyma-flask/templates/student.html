@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page - Your College Name</title>
+    <link rel="stylesheet" href="/static/student.css">
+    <link rel="stylesheet" href="/static/front_page.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/static/image/pscmr_logo.png" width="7%" height="7%" />
+    <b>
+        <a href="/">HOME</a>
+        <div class="dropdown">
+            <a href="student" id="student">STUDENT</a>
+            <div class="dropdown-content">
+                <a href="student-login">Student login</a>
+                <a href="student-signup">Student Sign</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="teacher" id="teacher">TEACHER</a>
+            <div class="dropdown-content">
+                <a href="">Teacher login</a>
+                <a href="">Teacher Sign</a>
+            </div>
+        </div>
+        <!--a href="">ABOUT US</!--a-->
+        <a href="">CONTACT US</a>
+    </b>
+</nav>
+    <section>
+        <h2>Previous Years' Student Placement Data</h2>
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Student Name</th>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+            {% for placement in placements %}
+            <tr>
+                <td>{{ placement[1] }}</td>
+                <td>{{ placement[2] }}</td>
+                <td>{{ placement[3] }}</td>
+                <td>{{ placement[4] }}</td>
+                <td>{{ placement[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section>
+        <h2>About Our College</h2>
+        <p>PSCMRCET is a premier institution known for its excellent academic programs and outstanding student placements. Our college has a long history of successful alumni who have gone on to work at top companies around the world.
+            Our super seniors have been placed with salaries above 3 lakhs, and the highest package recorded is 10 lakhs.
+        </p>
+    </section>
+
+    <br><br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Korada Moni Naga Hyma. All rights reserved.</p>
+    </footer>
+</body>
+</html>

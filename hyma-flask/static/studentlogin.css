@@ -1,0 +1,100 @@
+/* General styling for the body and form */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("image/1.jpg");
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding-top: 150px;
+  margin: 0;
+  height: 50vh; /* Ensure body covers the full viewport height */
+}
+
+/* Form container styling */
+form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: slideInFromLeft 1s ease;
+}
+
+/* Styling for input fields */
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #cdc9c9;
+  border-radius: 3px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  animation: fadeIn 1s ease;
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease;
+}
+.signup-link {
+  display: block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px;
+  font-size: small;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+
+/* Hover effects */
+input[type="submit"]:hover, .signup-link:hover {
+  background-color: #0056b3;
+}
+
+
+/* Add some spacing between the login button and input fields */
+br {
+  margin-top: 10px;
+}
+
+/* Add some additional spacing for the form title */
+h2 {
+  margin-bottom: 20px;
+}
+
+/* CSS animations */
+@keyframes slideInFromLeft {
+  from {
+      transform: translateX(-10%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
